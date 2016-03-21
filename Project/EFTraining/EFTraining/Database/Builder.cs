@@ -72,7 +72,7 @@ namespace EFTraining.Database
                                                         
                                                     );
 
-");
+                           ");
 
           
         }
@@ -85,31 +85,43 @@ namespace EFTraining.Database
                                 Insert into Cliente (Name) values ('Tony Stark');
                             "
                             );
+
             //Materiais
             ExecuteCommand(@"
                                 Insert into Material (Name) values ('Pencil');
                                 Insert into Material (Name) values ('Eraser');
                             "
                             );
+
             //Fornecedores
             ExecuteCommand(@"
                                 Insert into Fornecedor (Name) values ('Bic');
                                 Insert into Fornecedor (Name) values ('Faber Castell');
                             "
                             );
+
             //Pedido
             ExecuteCommand(@"
                                 Insert into Pedido (Date,Cliente_ID,Fornecedor_ID) values ('2016-03-20',1,2);
-                                Insert into Pedido (Date,Cliente_ID,Fornecedor_ID) values ('2016-03-20',2,1);
+                                Insert into Pedido (Date,Cliente_ID,Fornecedor_ID) values ('2016-03-21',1,1);
+                                Insert into Pedido (Date,Cliente_ID,Fornecedor_ID) values ('2016-03-22',2,1);
                             "
                             );
-            //Itens do Pedido
+
+            //Itens do Pedido do Pedido 1
             ExecuteCommand(@"
                                 Insert into Item_Pedido (Pedido_id,Material_ID,Qtd,Value) values (1,1,5,10.5);
                                 Insert into Item_Pedido (Pedido_id,Material_ID,Qtd,Value) values (1,2,10,15.5);
                             "
                             );
 
+            //Itens do Pedido do Pedido 2
+            ExecuteCommand(@"
+                                Insert into Item_Pedido (Pedido_id,Material_ID,Qtd,Value) values (2,2,2,10.5);
+                            "
+                            );
+
+            //Pedido 3 não possui itens para fins de Dojo
 
         }
 

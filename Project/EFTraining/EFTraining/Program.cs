@@ -12,7 +12,15 @@ namespace EFTraining
         {
             Builder.CreatingDatabase();
 
+            /*INICIO --Inserir aqui código de query*/
 
+            
+
+
+
+            
+            
+            /*FIM    --Inserir aqui código de query*/
 
             Builder.Connection.Close();
 
