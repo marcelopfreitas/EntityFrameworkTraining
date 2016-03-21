@@ -11,14 +11,22 @@ namespace EFTraining.Database
     public class Builder
     {
         private static SQLiteConnection _connection = null;
-
-        public static void CreatingDatabase()
+        public static bool inMemoryDatabase = true;
+        public static void CreatingDatabase( )
         {
             CreateDatabaseTables();
             ImportDatabaseDump();
         }
 
-        private static string StringConnection { get { return "Data Source=:memory:;Version=3;"; } }
+        private static string StringConnection {
+                get {
+                        if(inMemoryDatabase)
+                            return "Data Source=:memory:;Version=3;";
+                        else
+                            return "Data Source=databaseFile.sqlite;Version=3;";
+
+            }
+        }
 
         public static SQLiteConnection Connection
         {

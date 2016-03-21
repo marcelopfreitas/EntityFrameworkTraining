@@ -10,6 +10,9 @@ namespace EFTraining
     {
         static void Main(string[] args)
         {
+
+            Builder.inMemoryDatabase = true;
+
             Builder.CreatingDatabase();
 
             /*INICIO --Inserir aqui código de query*/
@@ -23,6 +26,9 @@ namespace EFTraining
             /*FIM    --Inserir aqui código de query*/
 
             Builder.Connection.Close();
+
+            Console.WriteLine("Pressione enter para finalizar o programa!");
+            Console.ReadLine();
 
         }
     }
